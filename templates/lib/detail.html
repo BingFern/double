@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TestBed</title>
+    <script src="/static/js/echarts.js"></script>
+</head>
+<body>
+    <div id="main" style="width: 600px;height: 400px;"></div>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('main'));
+
+        var option = {
+            title: {
+                text: 'ECharts 入门示例'
+            },
+            tooltip: {},
+            legend: {
+                data:['销量']
+            },
+            xAxis: {
+                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        };
+        myChart.setOption(option)
+
+    </script>
+<h1>TestBeddddddddddd </h1>
+</body>
+
+<body>
+<h1>TestBed list </h1>
+{#<tr>#}
+{#    <td>{{ queue01.queueId }}</td>#}
+{#    <td>{{ queue01.userName }}</td>#}
+{#</tr>#}
+<tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>BUSY_TESTBEDS:</td>
+    <td>{{ my_sum_busy_list_dict }}</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>FREE_TESTBEDS:</td>
+    <td>{{ my_sum_free_list_dict }}</td>
+</tr>
+
+<table cellpadding="10px">
+    <tr>
+        {#        <th>testbedid </th>#}
+        <th>ID</th>
+        <th>testbed</th>
+        <th>status</th>
+        <th>build</th>
+        {#        <th>testbed </th>#}
+        <th>suite</th>
+        <th>creationdate</th>
+        {#        <th>lastchangedate</th>#}
+        <th>finishdate</th>
+
+
+    </tr>
+
+    {#{% for book in book_list.all %}#}
+    {#    <tr>#}
+    {#        <td>{{ book.name }}</td>#}
+    {#        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>#}
+    {#        <td>{{ book.author }}</td>#}
+    {#        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>#}
+    {#        <td>{{ book.pub_house }}</td>#}
+    {#        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>#}
+    {#        <td>{{ book.pub_housebig }}</td>#}
+    {#        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>#}
+    {#        <td>{{ book.pub_date }}</td>#}
+    {#        <td><a href="{% url 'lib:delBook' book.id %}">删除</a></td>#}
+    {#    </tr>#}
+    {#{% endfor %}#}
+
+    {#{% for platformtype01 in platform_list.all %}#}
+    {#    <tr>#}
+    {#        <td>{{ platformtype01.pltformtypeid }}</td>#}
+    {#        <td>{{ platformtype01.platformtype }}</td>#}
+    {##}
+    {#    </tr>#}
+    {##}
+    {#{% endfor %}#}
+    {#{% for testbeds01 in testbeds_list.all %}#}
+    {#    <tr>#}
+    {##}
+    {#    {% for platformtype01 in platform_list.all %}#}
+    {#        <td>{{ testbeds01.testbedID }}</td>#}
+    {#        <td>{{ testbeds01.testbed }}</td>#}
+    {#        #}
+    {#    {% for platformtype01 in context.platform_list %}#}
+    {#        <td>{{ context.platformtype01.pltformtypeid }}</td>#}
+    {#        <td>{{ context.platformtype01.platformtype }}</td>#}
+    {#    {% endfor %}#}
+    {#        <td>{{ platformtype01.pltformtypeid }}</td>#}
+    {#        <td>{{ platformtype01.platformtype }}</td>#}
+    {#    {% endfor %}#}
+    {##}
+    {##}
+    {#    </tr>#}
+    {##}
+    {#{% endfor %}#}
+
+
+    {% for queue01 in queue_list_my %}
+        <tr>
+            {#        <td>{{  }}</td>#}
+            {#        <td>{{ queue01.queueid }}</td>#}
+            {#        <td>{{ queue01.username }}</td>#}
+
+            <td>{{ queue01.testbedID }}</td>
+            <td>{{ queue01.testbed }}</td>
+            <td>{{ queue01.status }}</td>
+            <td>{{ queue01.build }}</td>
+            <td>{{ queue01.suite }}</td>
+            <td>{{ queue01.creationdate }}</td>
+            {#        <td>{{ queue01.lastchangedate }}</td>#}
+            <td>{{ queue01.finishdate }}</td>
+        </tr>
+
+    {% endfor %}
+
+</table>
+{##}
+{#<form action="{% url 'lib:addBook' %}" method="post" name="addBook">#}
+{#    {% csrf_token %}#}
+{#    <p><span>书名：</span><input type="text" name="name"></p>#}
+{#    <p><span>作者：</span><input type="text" name="author"></p>#}
+{#    <p><span>出版社：</span><input type="text" name="pub_house"></p>#}
+{#    <input type="submit" value="添加">#}
+{#</form>#}
+
+</body>
+</html>
